@@ -1,0 +1,20 @@
+{
+  "name": "mini-dex",
+  "version": "0.1.0",
+  "description": "Mini DEX on Solana",
+  "scripts": {
+    "test": "ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
+  },
+  "dependencies": {
+    "@coral-xyz/anchor": "^0.32.1",
+    "@solana/spl-token": "^0.4.14"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.0",
+    "@types/node": "^20.0.0",
+    "chai": "^4.3.10",
+    "mocha": "^10.0.0",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.0.0"
+  }
+}

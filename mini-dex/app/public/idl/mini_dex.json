@@ -1,0 +1,597 @@
+{
+  "address": "HazKKeRzso2bAryAMipJ741gA3oGU9wJmDFwHCt29gqJ",
+  "metadata": {
+    "name": "mini_dex",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "add_liquidity",
+      "discriminator": [
+        181,
+        157,
+        89,
+        67,
+        143,
+        182,
+        52,
+        72
+      ],
+      "accounts": [
+        {
+          "name": "pool",
+          "writable": true
+        },
+        {
+          "name": "pool_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_a_vault",
+          "writable": true
+        },
+        {
+          "name": "token_b_vault",
+          "writable": true
+        },
+        {
+          "name": "lp_token_mint",
+          "writable": true
+        },
+        {
+          "name": "user_token_a",
+          "writable": true
+        },
+        {
+          "name": "user_token_b",
+          "writable": true
+        },
+        {
+          "name": "user_lp_token",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount_a",
+          "type": "u64"
+        },
+        {
+          "name": "amount_b",
+          "type": "u64"
+        },
+        {
+          "name": "min_lp_tokens",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "initialize_pool",
+      "discriminator": [
+        95,
+        180,
+        10,
+        172,
+        84,
+        174,
+        232,
+        40
+      ],
+      "accounts": [
+        {
+          "name": "pool",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "token_a_mint"
+              },
+              {
+                "kind": "account",
+                "path": "token_b_mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "pool_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_a_mint"
+        },
+        {
+          "name": "token_b_mint"
+        },
+        {
+          "name": "token_a_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  97,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_b_vault",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  98,
+                  95,
+                  118,
+                  97,
+                  117,
+                  108,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "lp_token_mint",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  108,
+                  112,
+                  95,
+                  116,
+                  111,
+                  107,
+                  101,
+                  110,
+                  95,
+                  109,
+                  105,
+                  110,
+                  116
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        },
+        {
+          "name": "rent",
+          "address": "SysvarRent111111111111111111111111111111111"
+        }
+      ],
+      "args": []
+    },
+    {
+      "name": "remove_liquidity",
+      "discriminator": [
+        80,
+        85,
+        209,
+        72,
+        24,
+        206,
+        177,
+        108
+      ],
+      "accounts": [
+        {
+          "name": "pool",
+          "writable": true
+        },
+        {
+          "name": "pool_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_a_vault",
+          "writable": true
+        },
+        {
+          "name": "token_b_vault",
+          "writable": true
+        },
+        {
+          "name": "lp_token_mint",
+          "writable": true
+        },
+        {
+          "name": "user_token_a",
+          "writable": true
+        },
+        {
+          "name": "user_token_b",
+          "writable": true
+        },
+        {
+          "name": "user_lp_token",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "lp_token_amount",
+          "type": "u64"
+        },
+        {
+          "name": "min_amount_a",
+          "type": "u64"
+        },
+        {
+          "name": "min_amount_b",
+          "type": "u64"
+        }
+      ]
+    },
+    {
+      "name": "swap",
+      "discriminator": [
+        248,
+        198,
+        158,
+        145,
+        225,
+        117,
+        135,
+        200
+      ],
+      "accounts": [
+        {
+          "name": "pool",
+          "writable": true
+        },
+        {
+          "name": "pool_authority",
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  112,
+                  111,
+                  111,
+                  108,
+                  95,
+                  97,
+                  117,
+                  116,
+                  104,
+                  111,
+                  114,
+                  105,
+                  116,
+                  121
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "pool"
+              }
+            ]
+          }
+        },
+        {
+          "name": "token_a_vault",
+          "writable": true
+        },
+        {
+          "name": "token_b_vault",
+          "writable": true
+        },
+        {
+          "name": "user_token_a",
+          "writable": true
+        },
+        {
+          "name": "user_token_b",
+          "writable": true
+        },
+        {
+          "name": "user",
+          "signer": true
+        },
+        {
+          "name": "token_program",
+          "address": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"
+        }
+      ],
+      "args": [
+        {
+          "name": "amount_in",
+          "type": "u64"
+        },
+        {
+          "name": "min_amount_out",
+          "type": "u64"
+        },
+        {
+          "name": "is_a_to_b",
+          "type": "bool"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Pool",
+      "discriminator": [
+        241,
+        154,
+        109,
+        4,
+        17,
+        177,
+        109,
+        188
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "SlippageExceeded",
+      "msg": "Slippage tolerance exceeded"
+    },
+    {
+      "code": 6001,
+      "name": "InvalidCalculation",
+      "msg": "Invalid calculation - would result in zero output"
+    },
+    {
+      "code": 6002,
+      "name": "InsufficientLiquidity",
+      "msg": "Insufficient liquidity in pool"
+    },
+    {
+      "code": 6003,
+      "name": "MathOverflow",
+      "msg": "Math overflow occurred"
+    },
+    {
+      "code": 6004,
+      "name": "InvalidTokenMints",
+      "msg": "Invalid token mints - must be different"
+    }
+  ],
+  "types": [
+    {
+      "name": "Pool",
+      "docs": [
+        "Pool account - Guarda el estado del liquidity pool"
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "authority",
+            "docs": [
+              "Authority PDA que controla el pool"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "token_a_mint",
+            "docs": [
+              "Mint address del Token A (ej: SOL)"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "token_b_mint",
+            "docs": [
+              "Mint address del Token B (ej: USDC)"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "token_a_vault",
+            "docs": [
+              "Vault que guarda Token A"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "token_b_vault",
+            "docs": [
+              "Vault que guarda Token B"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "lp_token_mint",
+            "docs": [
+              "LP Token Mint"
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "reserve_a",
+            "docs": [
+              "Reserves de Token A en el pool"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "reserve_b",
+            "docs": [
+              "Reserves de Token B en el pool"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "fee_numerator",
+            "docs": [
+              "Fee en basis points (30 = 0.3%)"
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "authority_bump",
+            "docs": [
+              "Bump seed para el authority PDA"
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}
